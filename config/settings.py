@@ -128,3 +128,14 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+# TODO's
+# TODO: Login
+# TODO: Sign Up *Avatar? Instagram? user_slug? /one_to/one / profile
+# TODO: Reset Password
+# TODO: User Avatar, Instagram Account, user_slug(firsname, lastname)
+# TODO: Blog App
+# TODO: Post(Login Olan Kullanıcı)
+# TODO: User Tag Oluşturabilir * Kullanıcı Tag Bilgilerini Virgül ile ayırarak gönderecek
+# TODO: Popüler Olanlar/ En Çok Okunanlar
+# TODO: User Fav
+# TODO: PAGE APP Model Yapısı/Admin
