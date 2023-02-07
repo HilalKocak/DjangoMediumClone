@@ -6,7 +6,9 @@
             <h1>Login:</h1>
             <!-- Formda metot belirtmeyi unutma. Eğer aramada gözükmeyecekse metot post olmalı-->
             <!-- Her input bilgisinin name bilgisi olmalıdır -->
+            <!-- CSRF bilgisi olmalıdır -->
             <form method="POST">
+              {% csrf_token %}
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
