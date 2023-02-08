@@ -132,6 +132,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # TODO's
 # TODO: Login
+# TODO: Logout
 # TODO: Sign Up *Avatar? Instagram? user_slug? /one_to/one / profile
 # TODO: Reset Password
 # TODO: User Avatar, Instagram Account, user_slug(firsname, lastname)
