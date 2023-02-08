@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 # Create your views here.
@@ -25,3 +25,8 @@ def login_view(request):
         else:
             print('Return invalid login error message')
     return render(request, 'user_profile/login.html', context)
+
+def logout_view(request):
+    messages.info(request, f"{request.user.username} Oturumun kapatıldı")
+    logout(request)
+    return redirect('home_view')
