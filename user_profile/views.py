@@ -5,7 +5,6 @@ from django.contrib import messages
 # Create your views here.
 
 def login_view(request):
-    # Login olan kullanici direk ana sayfaya yonlendirilsin
     if request.user.is_authenticated:
         messages.info(request, f"{request.user.username} Daha once login olmussun")
         return redirect('home_view')
@@ -13,12 +12,13 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        print(username, password)
+        if len(username) < 4 or len(password) < 4:
+             messages.add_message(request, messages.WARNING, '6 karakterden büyük olmalı')
+             return redirect('user_profile:login_view')
+
         user = authenticate(request, username=username, password=password)
-        #Bu kullanici bilgileri dogru girmis mi
         if user is not None:
         # A backend authenticated the credentials
-        #Login oldugunu kullaniciya belli edelim
             messages.add_message(request, messages.SUCCESS, 'Login oldun')
             login(request, user)
             return redirect('home_view')
