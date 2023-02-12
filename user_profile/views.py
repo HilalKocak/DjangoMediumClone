@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from django.contrib.auth.models import User
+from .models import Profile
 # Create your views here.
 
 def login_view(request):
@@ -45,9 +46,11 @@ def register_view(request):
         instagram = post_info.get('instagram')
         print('*'*30)
         print(email, email_confirm, first_name, last_name, password, password_confirm, instagram,)
-        if len(first_name)<3 or len(last_name)<3 or len(password)<3:
+        
+        if len(first_name)<3 or len(last_name)<3 or len(password)<3 or len(email)<3:
             messages.warning(request, "Bilgiler en az üç karakterden oluşmalı")
             return redirect('user_profile:register_view')
+        
         if email != email_confirm:
             messages.warning(request, "Emailler eslesmiyor")
             return redirect('user_profile:register_view')
@@ -55,7 +58,35 @@ def register_view(request):
         if password != password_confirm:
             messages.warning(request, "Sifreler eslesmiyor")
             return redirect('user_profile:register_view')
-        print(request.POST)
-    
+        
+        user, created = User.objects.get_or_create(username=email)
+        print("This is user : ",user) # sadece mail adresini adık user ile
+        print("created: ", created)
+        # Eger Kullanici Created Degilse Kullanici Daha Once Sisteme Kayitlidir..
+        if not created:
+            user = authenticate(request, username=email, password=password)
+            if user is not None:
+                messages.success(request, "Daha Once Kayit Olmussunuz.. Ana Sayfaya Yonlendirildiniz..")
+                # Kullanici Login oldu ;)
+                login(request, user)
+                return redirect('home_view')
+            messages.warning(request, f'{email} adresi sistemde kayitli ama Login olamadiniz.. Login Sayfasina Yonlendiriliyorsunuz')
+            return redirect('user_profile:login_view')
+        
+        user.email=email
+        user.first_name = first_name
+        user.last_name = last_name
+        user.set_password(password)
+
+        profile, profile_created = Profile.objects.get_or_create(user=user)
+        profile.instagram = instagram
+        user.save()
+        profile.save()
+
+        messages.success(request, f"{user.first_name} Sisteme kaydedildiniz..")
+        user_login = authenticate(request, username=email, password=password)
+        login(request, user_login)
+        return redirect('home_view')
+
     return render(request, 'user_profile/register.html', context)
 
