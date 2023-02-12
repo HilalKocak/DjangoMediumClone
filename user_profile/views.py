@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
+from slugify import slugify
 # Create your views here.
 
 def login_view(request):
@@ -80,6 +81,7 @@ def register_view(request):
 
         profile, profile_created = Profile.objects.get_or_create(user=user)
         profile.instagram = instagram
+        profile.slug = slugify(f"{first_name}-{last_name}")
         user.save()
         profile.save()
 
