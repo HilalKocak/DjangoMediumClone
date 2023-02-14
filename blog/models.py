@@ -21,6 +21,7 @@ class CommonModel(models.Model):
     class Meta:
         abstract = True
         
+        
 
 # Create your models here.
 class Category(CommonModel):
