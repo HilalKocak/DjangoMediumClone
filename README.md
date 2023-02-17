@@ -5,6 +5,7 @@
 - Templates and Templates Language
 - Views & Urls
 - Admin Panel
+- Add class to form field Django ModelForm
 
 ### Python Shell
 from django.contrib.auth.models import User
