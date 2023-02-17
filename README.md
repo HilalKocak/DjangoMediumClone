@@ -9,6 +9,7 @@
 - Django Cripspy Forms
 - TinyMCE with Forms
 - enctype='multipart/form-data'
+- Form Validators(forms def cleaned_data)
 
 ### Python Shell
 from django.contrib.auth.models import User

@@ -17,7 +17,8 @@ class BlogPostModelForm(forms.ModelForm):
             'tag', 
             ]
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['title'].widget.attrs.update({'class': 'form-control'})
-        self.fields['category'].widget.attrs.update({'class':'form-control'})
+    def clean_title(self):
+        title = self.cleaned_data.get('title')
+        if len(title) < 3:
+            raise forms.ValidationError('Ohhh at least 3 characters! ')
+        return title
