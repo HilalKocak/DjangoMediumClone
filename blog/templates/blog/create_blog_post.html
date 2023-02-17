@@ -1,4 +1,6 @@
 {% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div class="container mt-4">
@@ -8,7 +10,7 @@
             <form method="post">
                 {% csrf_token %}
                 
-                {{ form.as_p }}
+                {{ form|crispy }}
             </form>
         </div>
     </div>

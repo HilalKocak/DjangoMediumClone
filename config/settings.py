@@ -39,7 +39,10 @@ BASE_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS=[]
+THIRD_PARTY_APPS=[
+    'crispy_forms',
+    'crispy_bootstrap5',
+]
 
 MY_APPS=[
     'page',
@@ -129,6 +132,12 @@ MEDIA_URL="media/"
 MEDIA_ROOT = BASE_DIR / 'media_files'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+# CRISPY
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # TODO's
