@@ -10,6 +10,7 @@
 - TinyMCE with Forms
 - enctype='multipart/form-data'
 - Form Validators(forms def cleaned_data)
+- Creating out own form validators with function
 
 ### Python Shell
 from django.contrib.auth.models import User
