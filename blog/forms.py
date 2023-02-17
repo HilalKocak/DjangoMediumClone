@@ -1,11 +1,8 @@
 from .models import BlogPost
 from django import forms
 from tinymce.widgets import TinyMCE
-from django.core import validators
+from config.validators import min_length_3
 # Create the form class.
-def min_length_3(value):
-    if len(value)< 3:
-        raise forms.ValidationError("Our Own Control Function At Least 3 Characters!")
 
 class BlogPostModelForm(forms.ModelForm):
     tag = forms.CharField()
