@@ -13,9 +13,10 @@ def create_blog_post_view(request):
         print(form.errors)
         if form.is_valid():
             f = form.save(commit=False)
+            print(form.cleaned_data)
             f.user= request.user
             # f.save()
-            print(form.cleaned_data)
+            #print(form.cleaned_data.get('tag'))
         
     context = dict(
     form = form
