@@ -42,6 +42,7 @@ BASE_APPS = [
 THIRD_PARTY_APPS=[
     'crispy_forms',
     'crispy_bootstrap5',
+    'tinymce',
 ]
 
 MY_APPS=[

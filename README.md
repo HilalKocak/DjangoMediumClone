@@ -7,6 +7,8 @@
 - Admin Panel
 - Add class to form field Django ModelForm
 - Django Cripspy Forms
+- TinyMCE with Forms
+- enctype='multipart/form-data'
 
 ### Python Shell
 from django.contrib.auth.models import User
