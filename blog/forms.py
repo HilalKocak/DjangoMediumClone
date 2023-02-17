@@ -1,8 +1,9 @@
-from django.forms import ModelForm
 from .models import Post
+from django import forms
 
 # Create the form class.
-class PostModelForm(ModelForm):
+class PostModelForm(forms.ModelForm):
+    tag = forms.CharField()
     class Meta:
         model = Post
         fields = [
