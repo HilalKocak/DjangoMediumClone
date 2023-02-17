@@ -42,13 +42,13 @@ class Tag(CommonModel):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse(
-            'blog:tag_view',
-            kwargs={
-                "tag_slug": self.slug,
-            }
-        )
+    # def get_absolute_url(self):
+    #     return reverse(
+    #         'blog:tag_view',
+    #         kwargs={
+    #             "tag_slug": self.slug,
+    #         }
+    #     )
 
 class Post(CommonModel):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
@@ -62,11 +62,11 @@ class Post(CommonModel):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse(
-            'blog:post_detail_view',
-            kwargs={
-                "category_slug": self.category.slug,
-                "post_slug":self.slug,
-            }
-        )  
+    # def get_absolute_url(self):
+    #     return reverse(
+    #         'blog:post_detail_view',
+    #         kwargs={
+    #             "category_slug": self.category.slug,
+    #             "post_slug":self.slug,
+    #         }
+    #     )  

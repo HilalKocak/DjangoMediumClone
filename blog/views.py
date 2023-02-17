@@ -8,4 +8,4 @@ def create_blog_post_view(request):
     context = dict(
         form = form
     )
-    return render(request, 'blog/create_blog_post.html', context)
+    return render(request, 'blog/create_blog_post.html', context)  

@@ -65,11 +65,11 @@ def register_view(request):
         print("created: ", created)
         # Eger Kullanici Created Degilse Kullanici Daha Once Sisteme Kayitlidir..
         if not created:
-            user = authenticate(request, username=email, password=password)
+            user_login = authenticate(request, username=email, password=password)
             if user is not None:
                 messages.success(request, "Daha Once Kayit Olmussunuz.. Ana Sayfaya Yonlendirildiniz..")
                 # Kullanici Login oldu ;)
-                login(request, user)
+                login(request, user_login)
                 return redirect('home_view')
             messages.warning(request, f'{email} adresi sistemde kayitli ama Login olamadiniz.. Login Sayfasina Yonlendiriliyorsunuz')
             return redirect('user_profile:login_view')
