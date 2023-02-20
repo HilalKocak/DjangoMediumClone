@@ -3,7 +3,7 @@ from .forms import BlogPostModelForm
 # Create your views here.
 from .models import Category, Tag, BlogPost
 from django.contrib.auth.decorators import login_required
-
+import json
 @login_required(login_url='user:login_view')
 def create_blog_post_view(request):
     form= BlogPostModelForm()
@@ -13,10 +13,15 @@ def create_blog_post_view(request):
         print(form.errors)
         if form.is_valid():
             f = form.save(commit=False)
-            print(form.cleaned_data)
             f.user= request.user
-            # f.save()
-            #print(form.cleaned_data.get('tag'))
+            f.save()
+            tags=json.loads(form.cleaned_data.get('tag'))
+
+            print(tags)
+            for item in tags:
+                tag_item, created= Tag.objects.get_or_create(title=item.get('value'))
+                f.tag.add(tag_item)
+
         
     context = dict(
     form = form
