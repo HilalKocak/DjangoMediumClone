@@ -51,6 +51,7 @@ MY_APPS=[
     'page',
     'blog',
     'user_profile',
+    'read',
 ]
 
 INSTALLED_APPS = BASE_APPS + THIRD_PARTY_APPS + MY_APPS

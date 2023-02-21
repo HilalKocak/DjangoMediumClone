@@ -15,5 +15,9 @@ urlpatterns = [
     path("user/", include("user_profile.urls", namespace="user")),
    # BLOG:
     path('blog/', include('blog.urls', namespace='blog')),
+
+    # READ
+    path('read/', include('read.urls', namespace='read')),
+
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

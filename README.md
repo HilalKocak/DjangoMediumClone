@@ -39,5 +39,7 @@ Tag.objects.all().delete()
 
 Tag.objects.all().update(is_active=True)
 
+user=User.objects.first()
+profile, created= Profile.objects.get_or_create(user=user)
 ```
 
