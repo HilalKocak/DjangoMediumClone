@@ -1,4 +1,8 @@
 ## The following features of Django are used in this project
+This project is clone of https://medium.com/
+
+This project allows different users to register, the registered user to publish blog posts. The user's blog posts have categories and tags. In this way, database relations such as onetomany and manytomany are used.
+
 - Abstract Model
 - Model Forms
 - Static Files, Media Files
