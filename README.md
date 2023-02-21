@@ -17,6 +17,8 @@
 - Many to Many structure
 - Easy Thumbnail
 - truncatewords_html
+- Add ordering to model structure
+- show blog info from db
 
 ### Python Shell
 ```
@@ -30,5 +32,8 @@ post=BlogPost.objects.first()
 post.tag.add(tag1)
 
 Tag.objects.all().delete()
+
+Tag.objects.all().update(is_active=True)
+
 ```
 

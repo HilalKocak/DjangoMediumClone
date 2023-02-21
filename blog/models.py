@@ -1,9 +1,3 @@
-
-# Create your models here.
-# Category
-# Tag
-# Post
-
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
@@ -20,6 +14,7 @@ class CommonModel(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ('title',)
         
         
 
@@ -61,6 +56,9 @@ class BlogPost(CommonModel):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ('-created_at',)
 
     # def get_absolute_url(self):
     #     return reverse(

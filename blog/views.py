@@ -23,6 +23,8 @@ def create_blog_post_view(request):
             print(tags)
             for item in tags:
                 tag_item, created= Tag.objects.get_or_create(title=item.get('value').lower())
+                tag_item.is_active=True
+                tag_item.save()
                 f.tag.add(tag_item)
             messages.success(request, "Yor post saved succesfully..")
             return redirect('home_view')
