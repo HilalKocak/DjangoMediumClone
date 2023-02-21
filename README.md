@@ -15,6 +15,8 @@
 - Django Extensions Plugin
 - shell_plus
 - Many to Many structure
+- Easy Thumbnail
+- truncatewords_html
 
 ### Python Shell
 ```

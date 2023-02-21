@@ -22,7 +22,7 @@ def create_blog_post_view(request):
 
             print(tags)
             for item in tags:
-                tag_item, created= Tag.objects.get_or_create(title=item.get('value'))
+                tag_item, created= Tag.objects.get_or_create(title=item.get('value').lower())
                 f.tag.add(tag_item)
             messages.success(request, "Yor post saved succesfully..")
             return redirect('home_view')

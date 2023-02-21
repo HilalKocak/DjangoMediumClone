@@ -206,9 +206,12 @@
 <hr>
 <!-- TRENDS END-->
 <section class="container mt-sm-5 mt-3">
-
     <div class="row">
         <main class="col-sm-7">
+
+            {% for post in posts %}
+            {% include 'blog/components/post.html' %}
+            {% endfor %}
             <article class="row mb-sm-3 mb-4">
                 <div class="col-sm-8">
                     <div>
