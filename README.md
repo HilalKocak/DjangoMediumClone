@@ -23,6 +23,8 @@ This project allows different users to register, the registered user to publish 
 - truncatewords_html
 - Add ordering to model structure
 - show blog info from db
+- bootstrap jumbatron
+- get_absolute_url
 
 ### Python Shell
 ```

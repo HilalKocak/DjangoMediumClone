@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.urls import reverse
 #Third party apps
 from autoslug import AutoSlugField
 from tinymce.models import HTMLField
