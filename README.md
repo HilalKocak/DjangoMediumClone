@@ -43,5 +43,9 @@ Tag.objects.all().update(is_active=True)
 
 user=User.objects.first()
 profile, created= Profile.objects.get_or_create(user=user)
+
+cat=Category.objects.first()
+cat.blogpost_set.all() or BlogPost.objects.filter(category=cat)
+
 ```
 

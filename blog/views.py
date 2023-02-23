@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BlogPostModelForm
 # Create your views here.
 from .models import Category, Tag, BlogPost
@@ -33,3 +33,21 @@ def create_blog_post_view(request):
     form = form
     )   
     return render(request, 'blog/create_blog_post.html', context)  
+
+def category_view(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    posts = BlogPost.objects.filter(category=category)
+    context=dict(
+        category=category,
+        posts=posts,
+    )
+    return render(request, 'blog/post_list.html', context)
+
+def tag_view(request, tag_slug):
+    tag = get_object_or_404(Tag, slug=tag_slug)
+    posts = BlogPost.objects.filter(tag=tag)
+    context=dict(
+        tag=tag,
+        posts=posts,
+    )
+    return render(request, 'blog/post_list.html', context)
