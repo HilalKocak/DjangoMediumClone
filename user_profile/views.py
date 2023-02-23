@@ -12,7 +12,25 @@ from .forms import ProfileModelForm
 @login_required(login_url='user:login_view')
 def profile_edit_view(request):
     user=request.user
-    form = ProfileModelForm(instance=user.profile) # default values when form opened
+    initial_data=dict(
+        first_name=user.first_name,
+        last_name=user.last_name,
+    )
+    form = ProfileModelForm(instance=user.profile, initial=initial_data) # default values when form opened
+    if request.method== 'POST':
+        form=ProfileModelForm(
+            request.POST or None,
+            request.FILES or None,
+            instance=user.profile,
+        )
+        if form.is_valid():
+            f=form.save(commit=False)
+            user.first_name=form.cleaned_data.get('first_name')
+            user.last_name=form.cleaned_data.get('last_name')
+            user.save()
+            f.save()
+            messages.success(request,'Your profile updated successfully')
+            return redirect('user:profile_edit_view') 
     title ='Edit Profile'
     context=dict(
         form=form,
