@@ -48,6 +48,6 @@ def tag_view(request, tag_slug):
     posts = BlogPost.objects.filter(tag=tag)
     context=dict(
         tag=tag,
-        posts=posts,
+        posts=tag.blogpost_set.all,
     )
     return render(request, 'blog/post_list.html', context)
