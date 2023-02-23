@@ -42,7 +42,7 @@
         <hr>
         <ul class="list-inline mb-3">
             {% for tag in post.tag.all %}
-            <li class="list-inline-item fs-12 text-muted"><a href="#"
+            <li class="list-inline-item fs-12 text-muted"><a href="{{ tag.get_absolute_url }}"
                 class="text-decoration-none text-muted">{{ tag.title }}</a></li>
             {% endfor %}
         

@@ -25,6 +25,7 @@ This project allows different users to register, the registered user to publish 
 - show blog info from db
 - bootstrap jumbatron
 - get_absolute_url
+- django template builtins: with
 
 ### Python Shell
 ```

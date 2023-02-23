@@ -21,8 +21,12 @@
                     <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                   </svg>
             </li>
-            <li class="list-inline-item fs-14 text-muted"><span
-                    class="badge text-bg-secondary">{{ post.category }}</span>
+            <li class="list-inline-item fs-14 text-muted">
+                <a href="{{ post.category.get_absolute_url }}">
+                    <span
+                    class="badge text-bg-secondary">{{ post.category }}
+                </span>
+                </a>
             </li>
             <li class="list-inline-item fs-14 float-end">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"

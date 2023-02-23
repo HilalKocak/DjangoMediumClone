@@ -10,6 +10,7 @@ from django.contrib import messages
 @login_required(login_url='user:login_view')
 def create_blog_post_view(request):
     form= BlogPostModelForm()
+    title='New Blog Post'
     if request.method== 'POST':
         form = BlogPostModelForm(request.POST or None, request.FILES or None)
         print(form)
@@ -30,9 +31,10 @@ def create_blog_post_view(request):
             return redirect('home_view')
         
     context = dict(
-    form = form
+    form = form,
+    title=title,
     )   
-    return render(request, 'blog/create_blog_post.html', context)  
+    return render(request, 'blog/form.html', context)  
 
 def category_view(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)

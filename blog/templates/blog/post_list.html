@@ -11,10 +11,20 @@
             {% endif %}
         </div>
         <div class="col-sm-8 offset-sm-2 mt-5">
-            
-            {% for post in posts %}
-            {% include 'blog/components/post.html' %}
-            {% endfor %}
+            {% if category %}
+                {% with posts=category.blogpost_set.all %}
+                    {% for post in posts %}
+                    {% include 'blog/components/post.html' %}
+                    {% endfor %}
+                {% endwith %}
+            {% elif tag %}
+                {% with posts=tag.blogpost_set.all %}
+                    {% for post in posts %}
+                    {% include 'blog/components/post.html' %}
+                    {% endfor %}
+                {% endwith %}
+
+            {% endif %}
 
         </div>
     </div>

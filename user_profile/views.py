@@ -4,7 +4,21 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Profile
 from slugify import slugify
+from django.contrib.auth.decorators import login_required
+from .forms import ProfileModelForm
 # Create your views here.
+
+
+@login_required(login_url='user:login_view')
+def profile_edit_view(request):
+    user=request.user
+    form = ProfileModelForm(instance=user.profile) # default values when form opened
+    title ='Edit Profile'
+    context=dict(
+        form=form,
+        title=title,
+    )
+    return render(request, 'blog/form.html', context)  
 
 def login_view(request):
     if request.user.is_authenticated:
