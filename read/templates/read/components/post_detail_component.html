@@ -10,7 +10,7 @@
         {{ post.content | safe }}
         <hr>
         <div>
-            <a href="{{ post.user.profile.get_absolute_url }}" class="text-decoration-none text-dark">
+            <a href="{{ post.user.profile.get_all_posts_url }}" class="text-decoration-none text-dark">
                 <img src="{{ post.user.profile.avatar|thumbnail_url:'avatar' }}" class="rounded-circle" alt="">
                 <small class="ms-2 fs-14">{{ post.user.get_full_name }}</small>
             </a>
