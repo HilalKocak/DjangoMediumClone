@@ -48,5 +48,31 @@ profile, created= Profile.objects.get_or_create(user=user)
 cat=Category.objects.first()
 cat.blogpost_set.all() or BlogPost.objects.filter(category=cat)
 
+Random Post Adding To Db via shell_plus
+titles = [
+    'Django Form Usage',
+    'Django Model Form',
+    'Django MVT',
+    'Django URL Namespace',
+    'Django Template Language',
+    'Django Usage',
+    'IPython',
+    'Crispy Forms',
+    'Easy Thumbnail Usage',
+    'Django Extensions Usage',
+]
+item=BlogPost.objects.first()
+
+for title in titles:
+    item.pk=None
+    item.title=title
+    item.slug=slugify(title)
+    item.view_count=randrange(10,100)
+    item.save()
+
+# Top Post Check
+posts=BlogPost.objects.filter(is_active=True)
+top_posts=BlogPost.objects.order_by('-view_count')[:6]
+top_posts.count()
 ```
 
