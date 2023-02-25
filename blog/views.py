@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 from .forms import BlogPostModelForm
 # Create your views here.
 from .models import Category, Tag, BlogPost
@@ -6,6 +7,12 @@ from django.contrib.auth.decorators import login_required
 import json
 from django.contrib import messages
 
+
+@login_required(login_url='user:login_view')
+def fav_update_view(request):
+    if request.method== 'POST':
+        print(request.POST)
+    return JsonResponse({"status":"OK"})
 
 @login_required(login_url='user:login_view')
 def create_blog_post_view(request):

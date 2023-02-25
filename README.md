@@ -26,6 +26,7 @@ This project allows different users to register, the registered user to publish 
 - bootstrap jumbatron
 - get_absolute_url
 - django template builtins: with
+- Axios Usage
 
 ### Python Shell
 ```
