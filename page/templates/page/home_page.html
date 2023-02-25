@@ -46,160 +46,12 @@
 
     <hr>
     <!-- reading list-->
-
     <div class="row">
-        <div class="col-sm-4">
-            <div class="row">
-
-                <div class="col-sm-2 col-1 text-muted fs-2 op-02">01</div>
-                <div class="col-sm-10 col-11 mt-sm-3 mt-1 ps-4 ps-sm-0">
-
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img src="https://picsum.photos/id/21/30/30?grayscale" class="rounded-circle" alt="">
-                        <small class="ms-2">Tom Cooper</small>
-                    </a>
-                    <a href="#" class="text-decoration-none text-dark">
-                        <strong>
-                            <h2 class="h6 mt-1">Ukraine War, 12 January 2023</h2>
-                        </strong>
-                    </a>
-                    <ul class="list-inline fs-12 op-04">
-                        <li class="list-inline-item">Jan 12</li>
-                        <li class="list-inline-item">3 min read</li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="col-sm-2 col-1 text-muted fs-2 op-02">02</div>
-                <div class="col-sm-10 col-11 mt-sm-3 mt-1 ps-4 ps-sm-0">
-
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img src="https://picsum.photos/id/22/30/30?grayscale" class="rounded-circle" alt="">
-                        <small class="ms-2">umair haque in Eudaimonia and Co</small>
-                    </a>
-                    <a href="#" class="text-decoration-none text-dark">
-                        <strong>
-                            <h2 class="h6 mt-1">Britain’s Finally Figuring Out Brexit</h2>
-                        </strong>
-                    </a>
-                    <ul class="list-inline fs-12 op-04">
-                        <li class="list-inline-item">Jan 12</li>
-                        <li class="list-inline-item">3 min read</li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="col-sm-2 col-1 text-muted fs-2 op-02">03</div>
-                <div class="col-sm-10 col-11 mt-sm-3 mt-1 ps-4 ps-sm-0">
-
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img src="https://picsum.photos/id/23/30/30?grayscale" class="rounded-circle" alt="">
-                        <small class="ms-2">Kenny Kuykendall</small>
-                    </a>
-                    <a href="#" class="text-decoration-none text-dark">
-                        <strong>
-                            <h2 class="h6 mt-1">What You Probably Don’t Know About Your Pastor When He Preaches</h2>
-                        </strong>
-                    </a>
-                    <ul class="list-inline fs-12 op-04">
-                        <li class="list-inline-item">Jan 12</li>
-                        <li class="list-inline-item">3 min read</li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-
+        {% for top_post in top_posts %}
+        {% include 'page/components/top_article.html' with count=forloop.counter post=top_post %}
+        {% endfor %}
     </div>
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="col-sm-2 col-1 text-muted fs-2 op-02">04</div>
-                <div class="col-sm-10 col-11 mt-3">
-
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img src="https://picsum.photos/id/24/30/30?grayscale" class="rounded-circle" alt="">
-                        <small class="ms-2">Tony Stubblebine in 3 Min Read</small>
-                    </a>
-
-                    <a href="#" class="text-decoration-none text-dark">
-                        <strong>
-                            <h2 class="h6 mt-1">20 Entertaining Uses of ChatGPT You Never Knew Were Possible</h2>
-                        </strong>
-                    </a>
-                    <ul class="list-inline fs-12 op-04">
-                        <li class="list-inline-item">Jan 12</li>
-                        <li class="list-inline-item">3 min read</li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="col-sm-2 col-1 text-muted fs-2 op-02">05</div>
-                <div class="col-sm-10 col-11 mt-3">
-
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img src="https://picsum.photos/id/25/30/30?grayscale" class="rounded-circle" alt="">
-                        <small class="ms-2">Will Lockett</small>
-                    </a>
-
-                    <a href="#" class="text-decoration-none text-dark">
-                        <strong>
-                            <h2 class="h6 mt-1">Tesla Is In Immense Trouble and Musk Knows It
-                            </h2>
-                        </strong>
-                    </a>
-                    <ul class="list-inline fs-12 op-04">
-                        <li class="list-inline-item">Jan 12</li>
-                        <li class="list-inline-item">3 min read</li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="row">
-                <div class="col-sm-2 col-1 text-muted fs-2 op-02">06</div>
-                <div class="col-sm-10 col-11 mt-3">
-
-                    <div>
-
-                        <a href="#" class="text-decoration-none text-dark">
-                            <img src="https://picsum.photos/id/26/30/30?grayscale" class="rounded-circle" alt="">
-                            <small class="ms-2">Marie Truong
-                                in
-                                Towards Data Science</small>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#" class="text-decoration-none text-dark">
-                            <strong>
-                                <h2 class="h6 mt-1">Can ChatGPT Write Better SQL than a Data Analyst?</h2>
-                            </strong>
-                        </a>
-
-                        <ul class="list-inline fs-12 op-04">
-                            <li class="list-inline-item">Jan 12</li>
-                            <li class="list-inline-item">3 min read</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
+ 
     <!-- reading list end-->
 </section>
 
@@ -243,4 +95,6 @@
         </aside>
     </div>
 </section>
+
+
 {% endblock content %}
