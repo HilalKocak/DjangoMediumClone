@@ -75,5 +75,8 @@ for title in titles:
 posts=BlogPost.objects.filter(is_active=True)
 top_posts=BlogPost.objects.order_by('-view_count')[:6]
 top_posts.count()
+
+p=BlogPost.objects.first()
+p.is_active=not p.is_active
 ```
 
