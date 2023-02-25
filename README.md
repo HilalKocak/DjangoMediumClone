@@ -78,5 +78,10 @@ top_posts.count()
 
 p=BlogPost.objects.first()
 p.is_active=not p.is_active
+
+user=User.objects.first()
+user.userpostfav_set.all()
+ids=user.userpostfav_set.filter(is_deleted=False).values_list('post_id',flat=True).order_by('-updated_at')
+posts=BlogPost.objects.filter(id__in=ids)
 ```
 
